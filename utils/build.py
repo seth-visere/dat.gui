@@ -67,7 +67,7 @@ def expand(path, globby):
   path = os.path.join(*path)
   if os.path.isdir(path):
     for root, dirnames, filenames in os.walk(path):
-      for filename in fnmatch.filter(filenames, globby):
+      for filename in fnmatch.filter(sorted(filenames), globby):
         matches.append(os.path.join(root, filename))
   else:
     matches.append(path)
